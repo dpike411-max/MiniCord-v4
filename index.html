@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MiniCord</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div id="header-left">
+        <div id="logo"></div>
+        <div id="title">MiniCord</div>
+      </div>
+    </header>
+
+    <main id="chat-container" aria-live="polite"></main>
+
+    <form id="input-container" onsubmit="return false;">
+      <input id="user-input" type="text" autocomplete="off" placeholder="Type a message..." />
+      <button id="send-btn" aria-label="Send">Send</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // register a basic service worker for offline caching (optional)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(()=>{ /* ignore */ });
+    }
+  </script>
+</body>
+</html>
